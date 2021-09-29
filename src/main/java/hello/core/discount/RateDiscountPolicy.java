@@ -2,9 +2,13 @@ package hello.core.discount;
 
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+// @Qualifier("mainDiscountPolicy")    // 빈 중복 오류 해결방법
+@Primary    // 우선순위를 설정하여 빈 중복 오류 방지
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;

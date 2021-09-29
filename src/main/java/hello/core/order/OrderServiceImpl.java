@@ -4,6 +4,7 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,6 +13,7 @@ public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
+    //private final DiscountPolicy rateDiscountPolicy;    // 필드명을 빈 이름으로 수정하면 빈 중복 오류 해결 가능
 
     /*
     // 필드 주입
