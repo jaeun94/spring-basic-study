@@ -3,8 +3,11 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor    // final이 붙은 필드를 모아 생성자를 자동으로 만들어줌, 생성자주입 코드 깔끔하게 사용 가능
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -44,13 +47,13 @@ public class OrderServiceImpl implements OrderService{
     // 생성자 호출시점에 딱 1번만 호출됨
     // 불변, 필수 의존관계
     // final 키워드 사용 가능(컴파일 시점에 오류 파악 가능)
-    @Autowired
+    /*@Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("memberRepository = " + memberRepository);
         System.out.println("discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }
+    }*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
