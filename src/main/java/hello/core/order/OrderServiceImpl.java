@@ -43,6 +43,7 @@ public class OrderServiceImpl implements OrderService{
     // 빈 등록시 자동주입
     // 생성자 호출시점에 딱 1번만 호출됨
     // 불변, 필수 의존관계
+    // final 키워드 사용 가능(컴파일 시점에 오류 파악 가능)
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("memberRepository = " + memberRepository);
